@@ -1,0 +1,679 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111827;
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #374151;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.tagline {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1;
+}
+
+.hero h1 span {
+    color: #facc15;
+}
+
+.hero > p {
+    color: #9ca3af;
+    margin: 25px 0 40px;
+    line-height: 1.7;
+}
+
+.upload-box {
+    max-width: 550px;
+    margin: auto;
+    padding: 45px;
+    border: 2px dashed #4b5563;
+    border-radius: 20px;
+    background: #1f2937;
+}
+
+.camera-icon {
+    font-size: 55px;
+}
+
+.upload-box h2 {
+    margin: 15px 0 8px;
+}
+
+.upload-box p {
+    color: #9ca3af;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 14px 22px;
+}
+
+.primary-btn {
+    background: #facc15;
+    color: #111827;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.generate-btn {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    background: #22c55e;
+    color: white;
+}
+
+.generate-btn:disabled {
+    background: #374151;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+#fileName {
+    margin-top: 15px;
+    color: #facc15;
+}
+
+.preview-container {
+    margin: 30px auto;
+}
+
+.preview-container img {
+    width: 250px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    text-align: center;
+    padding: 70px;
+}
+
+.spinner {
+    width: 55px;
+    height: 55px;
+    border: 5px solid #374151;
+    border-top: 5px solid #facc15;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 25px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* PASSPORT */
+
+.passport-section {
+    padding: 30px 0 80px;
+    text-align: center;
+}
+
+.passport-section > h2 {
+    margin-bottom: 30px;
+}
+
+.passport {
+    max-width: 850px;
+    margin: auto;
+    background: #f5f1e8;
+    color: #1f2937;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+
+.passport-header {
+    background: #7c3aed;
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.passport-header small {
+    letter-spacing: 3px;
+}
+
+.passport-header h2 {
+    font-size: 30px;
+}
+
+.passport-icon {
+    font-size: 45px;
+}
+
+.passport-body {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+}
+
+#passportImage {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #ddd6c7;
+}
+
+.passport-info {
+    flex: 1;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label,
+.passport-details label,
+.passport-footer label {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #6b7280;
+}
+
+.field span {
+    font-weight: bold;
+}
+
+.field.big span {
+    font-size: 25px;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.passport-details {
+    padding: 25px 30px;
+    background: #e9e3d5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.passport-details p,
+.passport-details li {
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.passport-details ul {
+    padding-left: 20px;
+}
+
+.life-story {
+    padding: 30px;
+    background: #fffdf7;
+}
+
+.life-story h3 {
+    margin-bottom: 12px;
+}
+
+.life-story p {
+    line-height: 1.7;
+}
+
+.passport-footer {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alive {
+    font-weight: bold;
+}
+
+.death-btn {
+    margin-top: 25px;
+    background: #991b1b;
+    color: white;
+}
+
+.again-btn {
+    margin: 25px 10px;
+    background: #374151;
+    color: white;
+}
+
+
+/* DEATH */
+
+.death-certificate {
+    text-align: center;
+    padding: 50px 0 100px;
+}
+
+.death-paper {
+    max-width: 650px;
+    margin: 30px auto;
+    background: #f3f4f6;
+    color: #111827;
+    padding: 50px;
+    border: 10px double #991b1b;
+}
+
+.death-paper p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.stamp {
+    color: #991b1b;
+    border: 4px solid #991b1b;
+    display: inline-block;
+    padding: 10px;
+    font-weight: bold;
+    transform: rotate(-8deg);
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #6b7280;
+    border-top: 1px solid #374151;
+}
+
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .passport-body {
+        flex-direction: column;
+    }
+
+    #passportImage {
+        width: 100%;
+        height: 250px;
+    }
+
+    .passport-details {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-box {
+        padding: 30px 20px;
+    }
+}
+
+/* ==========================================
+   🌌 MILKY WAY BACKGROUND
+   ========================================== */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background: #080611;
+}
+
+
+/* 🌌 Main Milky Way cloud */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 160%;
+    height: 45%;
+
+    top: 28%;
+    left: -30%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.16) 0%,
+            rgba(210, 190, 255, 0.10) 18%,
+            rgba(130, 100, 200, 0.06) 38%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    transform: rotate(-18deg);
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* 🌌 Softer outer galaxy haze */
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 150%;
+    height: 35%;
+
+    top: 35%;
+    left: -25%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(180, 170, 220, 0.05) 30%,
+            transparent 70%
+        );
+
+    filter: blur(55px);
+
+    transform: rotate(-18deg);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation: galaxyFloat 12s ease-in-out infinite alternate;
+}
+
+
+/* 💫 Slow Milky Way movement */
+
+@keyframes galaxyFloat {
+
+    from {
+        transform: rotate(-18deg) translateX(-2%);
+    }
+
+    to {
+        transform: rotate(-18deg) translateX(2%);
+    }
+}
+
+
+/* ==========================================
+   ✨ FLOATING STAR PARTICLES
+   ========================================== */
+
+.galaxy-stars {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+
+/* ✨ Individual particle */
+
+.galaxy-particle {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(210, 200, 255, 0.45);
+
+    animation:
+        particleMove var(--duration) ease-in-out infinite alternate,
+        particleShine var(--shine) ease-in-out infinite alternate;
+
+    will-change: transform, opacity;
+}
+
+
+/* ✨ Smaller distant particles */
+
+.galaxy-particle.small {
+    width: 1px;
+    height: 1px;
+
+    opacity: 0.65;
+
+    box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+
+/* 🌟 A few brighter stars */
+
+.galaxy-particle.bright {
+    width: 3px;
+    height: 3px;
+
+    background: rgba(255, 255, 255, 1);
+
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 1),
+        0 0 14px rgba(220, 210, 255, 0.8),
+        0 0 22px rgba(180, 160, 255, 0.35);
+}
+
+
+/* ✨ Slightly golden stars */
+
+.galaxy-particle.gold {
+    background: rgba(255, 220, 150, 0.95);
+
+    box-shadow:
+        0 0 5px rgba(255, 220, 150, 0.8),
+        0 0 12px rgba(255, 200, 120, 0.4);
+}
+
+
+/* ==========================================
+   💫 PARTICLE MOVEMENT
+   ========================================== */
+
+@keyframes particleMove {
+
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform:
+            translate3d(
+                var(--move-x),
+                var(--move-y),
+                0
+            );
+    }
+
+    100% {
+        transform:
+            translate3d(
+                calc(var(--move-x) * -0.4),
+                calc(var(--move-y) * -0.4),
+                0
+            );
+    }
+}
+
+
+/* ✨ Natural twinkling */
+
+@keyframes particleShine {
+
+    0% {
+        opacity: 0.25;
+    }
+
+    40% {
+        opacity: 0.55;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+/* ==========================================
+   📷 CAMERA MODAL
+   ========================================== */
+
+.camera-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.camera-modal.hidden {
+    display: none;
+}
+
+.camera-box {
+    width: min(600px, 100%);
+
+    background: #120d22;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.camera-box h2 {
+    margin-bottom: 20px;
+}
+
+#cameraVideo {
+    width: 100%;
+
+    max-height: 65vh;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    background: #000;
+}
+
+.camera-actions {
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+}
+
+.capture-btn,
+.close-camera-btn {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 20px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.capture-btn {
+    background: #ffffff;
+
+    color: #111111;
+}
+
+.close-camera-btn {
+    background: #333333;
+
+    color: #ffffff;
+}
+
+.capture-btn:hover,
+.close-camera-btn:hover {
+    transform: translateY(-2px);
+}

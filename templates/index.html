@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Object Passport</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🪪 OBJECT PASSPORT
+        </div>
+
+        <div class="tagline">
+            Because objects deserve citizenship too.
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="badge">
+                🌎 INTERNATIONAL OBJECT IMMIGRATION
+            </div>
+
+            <h1>
+                Give your object<br>
+                <span>a passport.</span>
+            </h1>
+
+            <p class="hero-text">
+                Upload a photo of any non-living object.
+                <br>
+                We'll investigate its suspiciously interesting life.
+            </p>
+
+
+            <!-- UPLOAD BOX -->
+
+            <div class="upload-box">
+
+                <div class="camera-icon">
+                    📷
+                </div>
+
+                <h2>
+                    Who wants to travel?
+                </h2>
+
+                <p>
+                    Upload a photo of your object
+                </p>
+
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/*"
+                    capture="environment"
+                    hidden
+                >
+
+
+<div class="upload-buttons">
+
+    <button
+        class="choose-btn"
+        id="chooseBtn"
+        type="button"
+    >
+        📁 Choose an object
+    </button>
+
+    <button
+        class="camera-btn"
+        id="cameraBtn"
+        type="button"
+    >
+        📷 Take a photo
+    </button>
+
+</div>    
+
+
+                <div
+                    id="fileName"
+                    class="file-name"
+                >
+                </div>
+
+
+                <button
+                    class="generate-btn"
+                    id="generateBtn"
+                    type="button"
+                    disabled
+                >
+                    Generate Passport 🪪
+                </button>
+
+            </div>
+            
+<!-- CAMERA MODAL -->
+<div id="cameraModal" class="camera-modal hidden">
+
+    <div class="camera-box">
+
+        <h2>📷 Object Camera</h2>
+
+        <video
+            id="cameraVideo"
+            autoplay
+            playsinline
+        ></video>
+
+        <div class="camera-actions">
+
+            <button
+                id="captureBtn"
+                class="capture-btn"
+                type="button"
+            >
+                📸 Capture Photo
+            </button>
+
+            <button
+                id="closeCameraBtn"
+                class="close-camera-btn"
+                type="button"
+            >
+                ✕ Cancel
+            </button>
+
+        </div>
+
+        <canvas
+            id="cameraCanvas"
+            hidden
+        ></canvas>
+
+    </div>
+
+</div>           
+
+            <!-- IMAGE PREVIEW -->
+
+            <div
+                id="previewContainer"
+                class="preview-container hidden"
+            >
+
+                <p>Object under investigation:</p>
+
+                <img
+                    id="previewImage"
+                    src=""
+                    alt="Selected object"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- LOADING SECTION -->
+
+        <section
+            id="loading"
+            class="loading hidden"
+        >
+
+            <div class="spinner"></div>
+
+            <h2>
+                Processing immigration...
+            </h2>
+
+            <p>
+                Our officers are interrogating the object.
+            </p>
+
+        </section>
+
+
+        <!-- PASSPORT SECTION -->
+
+        <section
+            id="passportSection"
+            class="passport-section hidden"
+        >
+
+            <h2 class="approved-title">
+                🎉 Citizenship Approved!
+            </h2>
+
+
+            <div class="passport">
+
+                <!-- PASSPORT TOP -->
+
+                <div class="passport-header">
+
+                    <div>
+                        <small>
+                            REPUBLIC OF
+                        </small>
+
+                        <h2>
+                            OBJECTS
+                        </h2>
+                    </div>
+
+                    <div class="passport-symbol">
+                        🪪
+                    </div>
+
+                </div>
+
+
+                <!-- PASSPORT MAIN -->
+
+                <div class="passport-main">
+
+                    <img
+                        id="passportImage"
+                        src=""
+                        alt="Object"
+                    >
+
+
+                    <div class="passport-info">
+
+                        <div class="field object-name-field">
+
+                            <label>
+                                NAME
+                            </label>
+
+                            <span id="objectName">
+                            </span>
+
+                        </div>
+
+
+                        <div class="two-columns">
+
+                            <div class="field">
+
+                                <label>
+                                    NATIONALITY
+                                </label>
+
+                                <span id="nationality">
+                                </span>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label>
+                                    AGE
+                                </label>
+
+                                <span id="age">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                OCCUPATION
+                            </label>
+
+                            <span id="occupation">
+                            </span>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                PASSPORT NO.
+                            </label>
+
+                            <span id="passportNumber">
+                            </span>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                IMMIGRATION STATUS
+                            </label>
+
+                            <span id="immigrationStatus">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXTRA DETAILS -->
+
+                <div class="passport-details">
+
+
+                    <div class="detail-card">
+
+                        <label>
+                            PERSONALITY
+                        </label>
+
+                        <p id="personality">
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <label>
+                            CRIMINAL RECORD
+                        </label>
+
+                        <p id="criminalRecord">
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <label>
+                            FAVOURITE ACTIVITY
+                        </label>
+
+                        <p id="favouriteActivity">
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-card">
+
+                        <label>
+                            HEALTH STATUS
+                        </label>
+
+                        <p id="healthStatus">
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-card travel-card">
+
+                        <label>
+                            TRAVEL HISTORY
+                        </label>
+
+                        <ul id="travelHistory">
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIFE STORY -->
+
+                <div class="life-story">
+
+                    <h3>
+                        📖 OFFICIAL LIFE STORY
+                    </h3>
+
+                    <p id="lifeStory">
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="passport-footer">
+
+                    <div>
+
+                        <label>
+                            ESTIMATED LIFESPAN
+                        </label>
+
+                        <span id="lifespan">
+                        </span>
+
+                    </div>
+
+
+                    <div class="status">
+
+                        🟢
+
+                        <span id="status">
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="passport-actions">
+
+                <button
+                    class="death-btn"
+                    id="deathBtn"
+                    type="button"
+                >
+                    ☠️ Issue Death Certificate
+                </button>
+
+
+                <button
+                    class="again-btn"
+                    id="againBtn"
+                    type="button"
+                >
+                    🔄 Passport Another Object
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEATH CERTIFICATE -->
+
+        <section
+            id="deathCertificate"
+            class="death-certificate hidden"
+        >
+
+            <h2>
+                ☠️ OFFICIAL DEATH CERTIFICATE
+            </h2>
+
+
+            <div class="death-paper">
+
+                <div class="death-icon">
+                    ⚰️
+                </div>
+
+
+                <h1 id="deadObjectName">
+                </h1>
+
+
+                <p>
+                    <strong>
+                        Status:
+                    </strong>
+
+                    DECEASED
+                </p>
+
+
+                <p>
+                    <strong>
+                        Cause of Death:
+                    </strong>
+
+                    <span id="causeOfDeath">
+                    </span>
+                </p>
+
+
+                <p>
+                    <strong>
+                        Age at Death:
+                    </strong>
+
+                    <span id="deathAge">
+                    </span>
+                </p>
+
+
+                <p>
+                    <strong>
+                        Last Words:
+                    </strong>
+
+                    <span id="lastWords">
+                    </span>
+                </p>
+
+
+                <div class="death-stamp">
+                    OFFICIALLY DEAD
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Object Passport © 2026
+
+        <span>
+            — A completely unnecessary government service.
+        </span>
+
+    </footer>
+
+    <div class="galaxy-stars"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
